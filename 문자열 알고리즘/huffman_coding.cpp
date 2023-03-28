@@ -133,10 +133,16 @@ void encode()
     string str = "", temp_str;
     while (in >> temp_str) str = str + "\n" + temp_str;
 
+    // 입력받은 문자열의 정보 출력
+    cout << "문자열 길이: " << str.length() << endl;
+
     // 허프만 코드 생성
 	HuffmanTree t;
 	t.Create(str);
 	unordered_map<char, string> info = t.GetInfo();
+
+    // 현재 상황 출력
+    cout << "허프만 코드 생성 완료" << endl;
 
     // iter.first = 아스키코드
     // iter.second = 허프만 코드
@@ -153,10 +159,9 @@ void encode()
 
 	// 압축 결과물인 이진수를 (이진수 62바이트) -> (char형 글자 9자)로 변환
     string res = ""; int cnt = 0;
-    string memo = ""; int ans = 0;
-	for (const auto iter : str) {
-        string temp = info[iter];
-        ans += temp.length();
+    string memo = "";
+	for (int iter = 0; iter < str.length(); iter++) {
+        string temp = info[str[iter]];
 
         for (int i = 0; i < temp.length(); i++) {
             memo = memo + temp[i];
@@ -182,9 +187,12 @@ void encode()
                 cnt = 0;
             }
         }
+
+        // 현재 상황 출력
+        if (iter % 100000 == 0) cout << "압축 " << iter << "자 완료." << endl;
 	}
     if (cnt) {
-        for (; cnt < 62; cnt++) { memo = memo + '0'; ans++; }
+        for (; cnt < 62; cnt++) memo = memo + '0';
         unsigned long long int t = 0, pw = 1;
         for (int j = 0; j < 62; j++, pw *= 2) {
             if (memo[j] == '1') t += pw;
@@ -253,6 +261,8 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
+
+    encode();
 
     return 0;
 }
