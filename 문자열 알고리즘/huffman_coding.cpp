@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-// 허프만 트리 구현체
+// 문자열 압축을 위한 허프만 트리 압축, 복원 구현체
 // 출처: https://lipcoder.tistory.com/187
 // todo -> 직접 구현한 구현체로 교체하기
 // -------------------------------------------------------------------
@@ -261,8 +261,6 @@ int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0); cout.tie(0);
-
-    encode();
 
     return 0;
 }
