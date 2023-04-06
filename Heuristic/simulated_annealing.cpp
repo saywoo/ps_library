@@ -73,6 +73,8 @@ void simulated_annealing()
 
             keep = true;
         }
+        
+        t *= d;
     }
 }
 
