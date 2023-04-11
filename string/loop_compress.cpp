@@ -33,7 +33,7 @@ void encode()
         // 앞의 문자와 지금의 문자가 다르다면 A10과 같은 형태로 저장
         else if (before_char != str[i]) {
             // 반복되는 문자를 추가
-            res = res + before_char;
+            res += before_char;
             
             // 반복되지 않으면 A의 형태로, 여러번 반복되면 A10의 형태로 저장
             cache_str = "";
@@ -44,7 +44,7 @@ void encode()
                 }
 
                 // 반복되는 횟수를 문자열에 저장
-                res = res + cache_str;
+                res += cache_str;
             } 
         }
         // 앞의 문자와 지금의 문자가 같다면 loop_count를 하나 더해주기
@@ -59,7 +59,7 @@ void encode()
     // 모든 문자를 탐색하고 남은 글자를 저장
     // ------------
     // 반복되는 문자를 추가
-    res = res + before_char;
+    res += before_char;
             
     // 반복되지 않으면 A의 형태로, 여러번 반복되면 A10의 형태로 저장
     cache_str = "";
@@ -70,7 +70,7 @@ void encode()
         }
 
         // 반복되는 횟수를 문자열에 저장
-        res = res + cache_str;
+        res += cache_str;
     }
     // ------------
 
