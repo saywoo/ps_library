@@ -1,0 +1,4 @@
+## 앞으로 추가할 알고리즘
+
+kmp
+rolling hash
